@@ -1,9 +1,21 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import { MapPin, Navigation } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
+// Function to refocus map
+function ChangeView({ center, zoom }) {
+    const map = useMap();
+    useEffect(() => {
+        if (center) {
+            map.setView(center, zoom);
+        }
+    }, [center, zoom, map]);
+    return null;
+}
 
 // Fix for default marker icon in Leaflet
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
@@ -19,9 +31,9 @@ let DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
-const MapView = ({ places, height = '500px', center = [7.4567, 81.8234], zoom = 12 }) => {
-    // If there are places, center the map on the first one
-    const mapCenter = places && places.length > 0 && places[0].latitude && places[0].longitude
+const MapView = ({ places, height = '500px', center = [7.4567, 81.8234], zoom = 13 }) => {
+    // If there are places and center is not overridden, use the first place
+    const mapCenter = places && places.length > 0 && !center
         ? [places[0].latitude, places[0].longitude]
         : center;
 
@@ -39,6 +51,7 @@ const MapView = ({ places, height = '500px', center = [7.4567, 81.8234], zoom = 
                     style={{ height: '100%', width: '100%' }}
                     scrollWheelZoom={false}
                 >
+                    <ChangeView center={mapCenter} zoom={zoom} />
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
                         url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"

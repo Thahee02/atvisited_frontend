@@ -10,6 +10,7 @@ const Explore = () => {
     const { places, loading, searchPlaces } = usePlaces();
     const [searchTerm, setSearchTerm] = useState('');
     const [hoveredPlaceId, setHoveredPlaceId] = useState(null);
+    const [selectedCenter, setSelectedCenter] = useState(null);
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -60,6 +61,7 @@ const Explore = () => {
                                         whileHover={{ x: 4 }}
                                         onMouseEnter={() => setHoveredPlaceId(place.id)}
                                         onMouseLeave={() => setHoveredPlaceId(null)}
+                                        onClick={() => setSelectedCenter([place.latitude, place.longitude])}
                                         className="group relative bg-white border border-slate-100 p-4 rounded-[2rem] hover:shadow-xl hover:shadow-slate-100 transition-all cursor-pointer"
                                     >
                                         <div className="flex gap-4">
@@ -115,7 +117,7 @@ const Explore = () => {
                         </div>
                     ) : null}
                     <div className="absolute inset-0 p-4 lg:p-10">
-                        <MapView places={places} height="100%" />
+                        <MapView places={places} height="100%" center={selectedCenter} />
                     </div>
 
                     {/* Floating Statistics */}

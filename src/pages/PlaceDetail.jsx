@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
     MapPin,
@@ -11,7 +11,11 @@ import {
     Navigation,
     Info,
     Camera,
-    Shield
+    Shield,
+    Compass,
+    ArrowRight,
+    Phone,
+    Globe
 } from 'lucide-react';
 import { usePlaceDetail } from '../hooks/usePlaceDetail';
 import Loading from '../components/common/Loading';
@@ -143,13 +147,13 @@ const PlaceDetail = () => {
                         </h2>
                         <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed text-lg font-medium">
                             <p>
-                                {place.description || `Experience the breathtaking beauty of ${place.name}. This destination offers a unique blend of heritage, nature, and modern exploration. Whether you're looking for a peaceful retreat or an adrenaline-pumping journey, this place has everything to make your visit unforgettable.`}
-                            </p>
+                                {place.description || `Experience the breathtaking beauty of ${place.name}. This destination offers a unique blend of heritage, nature, and modern exploration.Whether you're looking for a peaceful retreat or an adrenaline-pumping journey, this place has everything to make your visit unforgettable.`}
+                            </p >
                             <p className="mt-4">
                                 Visitors often praise the meticulous maintenance and the welcoming atmosphere. It's truly a must-visit spot for anyone looking to discover the hidden jewels of the region.
                             </p>
-                        </div>
-                    </section>
+                        </div >
+                    </section >
 
                     <section className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm">
                         <h2 className="text-2xl font-black text-slate-900 mb-8">What this place offers</h2>
@@ -169,18 +173,20 @@ const PlaceDetail = () => {
                             ))}
                         </div>
                     </section>
-                </div>
+                </div >
 
                 {/* Right Side: Action Card */}
-                <div className="space-y-8">
+                < div className="space-y-8" >
                     <div className="bg-slate-900 rounded-[3rem] p-8 text-white sticky top-32 shadow-2xl shadow-slate-200">
                         <div className="flex justify-between items-start mb-8">
                             <div>
                                 <p className="text-slate-400 font-bold text-xs uppercase tracking-widest mb-1 text-blue-400">Entry Fee</p>
-                                <h3 className="text-4xl font-black">Free</h3>
+                                <h3 className="text-4xl font-black">
+                                    {place.estimatedCost ? `LKR ${place.estimatedCost.toLocaleString()}` : 'Free'}
+                                </h3>
                             </div>
                             <div className="bg-white/10 px-3 py-1 rounded-full text-xs font-black border border-white/10 uppercase tracking-widest">
-                                PUBLIC
+                                {place.categoryName || 'SIGHT'}
                             </div>
                         </div>
 
@@ -190,8 +196,8 @@ const PlaceDetail = () => {
                                 <span className="text-emerald-400 font-bold">OPEN NOW</span>
                             </div>
                             <div className="flex justify-between text-sm">
-                                <span className="text-slate-400 font-medium">Estimated Visit</span>
-                                <span className="font-bold">2-4 Hours</span>
+                                <span className="text-slate-400 font-medium">Visiting Time</span>
+                                <span className="font-bold">{place.openingTime || '08:00'} - {place.closingTime || '20:00'}</span>
                             </div>
                             <div className="h-px bg-white/10 my-4" />
                             <div className="flex justify-between text-sm">
@@ -205,7 +211,10 @@ const PlaceDetail = () => {
                             GET DIRECTIONS
                         </button>
 
-                        <button className="w-full bg-white/10 hover:bg-white/20 text-white py-5 rounded-2xl font-black text-sm transition-all border border-white/10 active:scale-95">
+                        <button
+                            onClick={() => navigate('/build-plan', { state: { initialPlace: place } })}
+                            className="w-full bg-white/10 hover:bg-white/20 text-white py-5 rounded-2xl font-black text-sm transition-all border border-white/10 active:scale-95"
+                        >
                             PLAN A JOURNEY
                         </button>
 
@@ -213,9 +222,9 @@ const PlaceDetail = () => {
                             Part of AtVisited Heritage Program
                         </p>
                     </div>
-                </div>
-            </div>
-        </div>
+                </div >
+            </div >
+        </div >
     );
 };
 

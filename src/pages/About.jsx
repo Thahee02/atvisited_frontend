@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
 import { Compass, Globe, Users, Target, Rocket, Heart } from 'lucide-react';
+import { cn } from '../utils/utils';
 
 const About = () => {
     const stats = [
         { label: 'Destinations', value: '5K+', icon: Globe, color: 'text-blue-600', bg: 'bg-blue-50' },
-        { label: 'Explorers', value: '50K+', icon: Users, icon: Users, color: 'text-indigo-600', bg: 'bg-indigo-50' },
+        { label: 'Explorers', value: '50K+', icon: Users, color: 'text-indigo-600', bg: 'bg-indigo-50' },
         { label: 'Journeys', value: '120K+', icon: Compass, color: 'text-emerald-600', bg: 'bg-emerald-50' },
     ];
 

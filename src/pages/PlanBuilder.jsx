@@ -297,7 +297,7 @@ const PlanBuilder = () => {
                                                         </button>
                                                     </div>
 
-                                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                                         <div className="space-y-1">
                                                             <label className="text-[9px] font-black text-slate-400 uppercase tracking-widest pl-1">Arrival Time</label>
                                                             <input
@@ -316,6 +316,12 @@ const PlanBuilder = () => {
                                                                 className="w-full bg-white border border-slate-200 px-3 py-2 rounded-xl text-xs font-bold outline-none focus:border-blue-400"
                                                             />
                                                         </div>
+                                                        <div className="space-y-1">
+                                                            <label className="text-[9px] font-black text-slate-400 uppercase tracking-widest pl-1">Cost (LKR)</label>
+                                                            <div className="w-full bg-slate-100/50 border border-slate-100 px-3 py-2 rounded-xl text-xs font-bold text-slate-500">
+                                                                {place.estimatedCost || 0}
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -323,6 +329,22 @@ const PlanBuilder = () => {
                                             {/* Connector Dot */}
                                             {index < selectedPlaces.length - 1 && (
                                                 <div className="absolute left-[37.5px] -bottom-4 w-1.5 h-1.5 bg-slate-200 rounded-full" />
+                                            )}
+
+                                            {/* Transit Info */}
+                                            {index < selectedPlaces.length - 1 && selectedPlaces[index + 1].transitTime > 0 && (
+                                                <div className="ml-10 my-4 py-2 px-6 border-l-2 border-dashed border-slate-100 flex items-center gap-4 text-slate-400">
+                                                    <div className="flex items-center gap-2">
+                                                        <Navigation size={14} className="text-blue-400" />
+                                                        <span className="text-[10px] font-black uppercase tracking-widest">
+                                                            {selectedPlaces[index + 1].transitTime} mins transit
+                                                        </span>
+                                                    </div>
+                                                    <div className="w-1 h-1 bg-slate-200 rounded-full" />
+                                                    <div className="text-[10px] font-bold uppercase tracking-widest">
+                                                        ~{selectedPlaces[index + 1].distanceFromPrev?.toFixed(1)} KM
+                                                    </div>
+                                                </div>
                                             )}
                                         </Reorder.Item>
                                     ))}

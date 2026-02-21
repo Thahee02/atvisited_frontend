@@ -11,22 +11,53 @@ export const usePlanBuilder = () => {
     const [selectedPlaces, setSelectedPlaces] = useState([]);
     const [loading, setLoading] = useState(false);
 
+    const calculateDistance = (lat1, lon1, lat2, lon2) => {
+        if (!lat1 || !lon1 || !lat2 || !lon2) return 5; // Default 5km if missing coords
+        const R = 6371; // radius of earth in km
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c;
+    };
+
     const calculateTimes = useCallback((items) => {
-        let currentTime = items[0]?.estimatedArrivalTime || '09:00';
+        if (items.length === 0) return items;
         
-        return items.map((item, index) => {
-            if (index === 0) return item;
+        let updatedItems = [...items];
+        let currentTime = updatedItems[0]?.estimatedArrivalTime || '09:00';
+        
+        return updatedItems.map((item, index) => {
+            if (index === 0) return { ...item, transitTime: 0, distanceToNext: 0 };
             
-            // Calculate next arrival time based on previous item's duration
-            const prevItem = items[index - 1];
+            const prevItem = updatedItems[index - 1];
+            
+            // Calculate distance between prev item and current item
+            const distance = calculateDistance(
+                prevItem.latitude, prevItem.longitude,
+                item.latitude, item.longitude
+            );
+            
+            // Estimate transit time (e.g., 2 minutes per km + 5 mins buffer)
+            const transitMinutes = Math.round(distance * 2) + 5;
+            
+            // Calculate next arrival time: prev arrival + prev duration + transit
             const [hours, minutes] = (prevItem.estimatedArrivalTime || '09:00').split(':').map(Number);
             const date = new Date();
-            date.setHours(hours, minutes + (prevItem.estimatedDurationMinutes || 0));
+            date.setHours(hours, minutes + (prevItem.estimatedDurationMinutes || 0) + transitMinutes);
             
             const nextTime = `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
-            return { ...item, estimatedArrivalTime: nextTime };
+            
+            return { 
+                ...item, 
+                estimatedArrivalTime: nextTime,
+                transitTime: transitMinutes,
+                distanceFromPrev: distance
+            };
         });
-    }, []);
+    }, [calculateDistance]);
 
     const addPlace = useCallback((place) => {
         setSelectedPlaces(prev => {

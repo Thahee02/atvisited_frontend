@@ -50,10 +50,11 @@ const PlaceDetail = () => {
             <p className="text-slate-500 mb-8 max-w-sm">We couldn't find the place you're looking for. It might have been moved or removed.</p>
             <button
                 onClick={() => navigate('/')}
-                className="px-8 py-3 bg-slate-900 text-white rounded-full font-bold hover:bg-blue-600 transition-colors"
+                className="px-8 py-3 bg-slate-900 text-white rounded-full font-bold hover:bg-emerald-600 transition-colors"
             >
                 Back to Map
             </button>
+
         </div>
     );
 
@@ -110,11 +111,12 @@ const PlaceDetail = () => {
                             initial={{ y: 30, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.3 }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-600 text-white rounded-full font-bold text-[10px] uppercase tracking-widest mb-4 shadow-lg shadow-blue-500/30"
+                            className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-600 text-white rounded-full font-bold text-[10px] uppercase tracking-widest mb-4 shadow-lg shadow-emerald-500/30"
                         >
                             <Star size={12} fill="currentColor" />
                             {place.categoryName || 'Top Destination'}
                         </motion.div>
+
                         <motion.h1
                             initial={{ y: 30, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
@@ -130,11 +132,11 @@ const PlaceDetail = () => {
                             className="flex flex-wrap items-center gap-6"
                         >
                             <div className="flex items-center gap-2 text-slate-600 font-bold">
-                                <MapPin size={20} className="text-blue-500" />
+                                <MapPin size={20} className="text-emerald-500" />
                                 {place.address || 'Location Unknown'}
                             </div>
                             <div className="flex items-center gap-2 text-slate-600 font-bold">
-                                <Clock size={20} className="text-indigo-500" />
+                                <Clock size={20} className="text-emerald-500" />
                                 {place.openingTime ? `${place.openingTime.substring(0, 5)} - ${place.closingTime.substring(0, 5)}` : 'Open 24 Hours'}
                             </div>
                             <div className="flex items-center gap-2 text-slate-600 font-bold">
@@ -158,9 +160,10 @@ const PlaceDetail = () => {
                 <div className="lg:col-span-2 space-y-12">
                     <section>
                         <h2 className="text-2xl font-black text-slate-900 mb-6 flex items-center gap-2">
-                            <Info size={24} className="text-blue-600" />
+                            <Info size={24} className="text-emerald-600" />
                             About this adventure
                         </h2>
+
                         <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed text-lg font-medium">
                             <p>
                                 {place.description || `Experience the breathtaking beauty of ${place.name}. This destination offers a unique blend of heritage, nature, and modern exploration.Whether you're looking for a peaceful retreat or an adrenaline-pumping journey, this place has everything to make your visit unforgettable.`}
@@ -175,11 +178,11 @@ const PlaceDetail = () => {
                         <h2 className="text-2xl font-black text-slate-900 mb-8">What this place offers</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             {[
-                                { name: 'Expert Guides', icon: Compass, color: 'blue', show: true },
-                                { name: 'Photo Locations', icon: Camera, color: 'indigo', show: true },
+                                { name: 'Expert Guides', icon: Compass, color: 'emerald', show: true },
+                                { name: 'Photo Locations', icon: Camera, color: 'emerald', show: true },
                                 { name: 'Safe Exploration', icon: Shield, color: 'emerald', show: true },
                                 { name: 'Historical Sites', icon: Star, color: 'purple', show: true },
-                                { name: 'Parking Available', icon: CheckCircle2, color: 'blue', show: place.parkingAvailable },
+                                { name: 'Parking Available', icon: CheckCircle2, color: 'emerald', show: place.parkingAvailable },
                                 { name: 'Washrooms', icon: Droplets, color: 'cyan', show: place.washroomsAvailable },
                                 { name: 'Accessible', icon: Info, color: 'slate', show: !!place.accessibilityInfo },
                             ].filter(f => f.show).map((feature, i) => (
@@ -221,9 +224,10 @@ const PlaceDetail = () => {
                     <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100">
                             <h2 className="text-xl font-black text-slate-900 mb-6 flex items-center gap-3">
-                                <Bus size={24} className="text-indigo-600" />
+                                <Bus size={24} className="text-emerald-600" />
                                 Getting There
                             </h2>
+
                             <p className="text-slate-600 font-medium mb-4">{place.transportOptions || 'Common transport options include local buses, tuk-tuks, and private taxis from Sainthamaruthu or Kalmunai town.'}</p>
                             <div className="flex flex-wrap gap-2">
                                 <span className="px-3 py-1 bg-white rounded-full text-xs font-bold text-slate-500 border border-slate-200">Local Bus</span>
@@ -258,24 +262,26 @@ const PlaceDetail = () => {
                     </section>
 
                     {/* Family & Facilities Section */}
-                    <section className="bg-blue-50/20 p-8 rounded-[2.5rem] border border-blue-100/50">
+                    <section className="bg-emerald-50/20 p-8 rounded-[2.5rem] border border-emerald-100/50">
                         <div className="flex flex-col md:flex-row justify-between gap-8">
                             <div className="flex-1">
                                 <h2 className="text-2xl font-black text-slate-900 mb-6 flex items-center gap-3">
-                                    <Baby size={28} className="text-blue-600" />
+                                    <Baby size={28} className="text-emerald-600" />
                                     Family Suitability
                                 </h2>
+
                                 <p className="text-slate-600 mb-4">{place.suitableFor || 'This place is generally suitable for all visitors, including families and elderly members.'}</p>
                                 <div className="grid grid-cols-2 gap-4">
-                                    <div className={`p-4 rounded-2xl border ${place.washroomsAvailable ? 'bg-white border-blue-200' : 'bg-slate-50 border-slate-100 opacity-60'}`}>
+                                    <div className={`p-4 rounded-2xl border ${place.washroomsAvailable ? 'bg-white border-emerald-200' : 'bg-slate-50 border-slate-100 opacity-60'}`}>
                                         <p className="text-[10px] font-bold text-slate-400 uppercase mb-1">Washrooms</p>
                                         <p className="font-bold text-slate-700">{place.washroomsAvailable ? 'Available' : 'Not Available'}</p>
                                     </div>
-                                    <div className="bg-white p-4 rounded-2xl border border-blue-200">
+                                    <div className="bg-white p-4 rounded-2xl border border-emerald-200">
                                         <p className="text-[10px] font-bold text-slate-400 uppercase mb-1">Activities</p>
                                         <p className="font-bold text-slate-700">All Ages</p>
                                     </div>
                                 </div>
+
                             </div>
                             <div className="flex-1">
                                 <h2 className="text-2xl font-black text-slate-900 mb-6 flex items-center gap-3">
@@ -295,11 +301,12 @@ const PlaceDetail = () => {
                     <div className="bg-slate-900 rounded-[3rem] p-8 text-white sticky top-32 shadow-2xl shadow-slate-200">
                         <div className="flex justify-between items-start mb-8">
                             <div>
-                                <p className="text-slate-400 font-bold text-xs uppercase tracking-widest mb-1 text-blue-400">Entry Fee</p>
+                                <p className="text-slate-400 font-bold text-xs uppercase tracking-widest mb-1 text-emerald-400">Entry Fee</p>
                                 <h3 className="text-4xl font-black">
                                     {place.estimatedCost ? `LKR ${place.estimatedCost.toLocaleString()}` : 'Free'}
                                 </h3>
                             </div>
+
                             <div className="bg-white/10 px-3 py-1 rounded-full text-xs font-black border border-white/10 uppercase tracking-widest">
                                 {place.categoryName || 'SIGHT'}
                             </div>
@@ -317,13 +324,13 @@ const PlaceDetail = () => {
                             <div className="h-px bg-white/10 my-4" />
                             <div className="flex justify-between text-sm">
                                 <span className="text-white font-bold">Total Experience</span>
-                                <span className="text-blue-400 font-bold">PREMIUM</span>
+                                <span className="text-emerald-400 font-bold">PREMIUM</span>
                             </div>
                         </div>
 
                         <button
                             onClick={() => window.open(`https://www.google.com/maps/dir/?api=1&destination=${place.latitude},${place.longitude}`, '_blank')}
-                            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-5 rounded-2xl font-black text-sm transition-all shadow-lg shadow-blue-500/20 active:scale-95 flex items-center justify-center gap-2 mb-4"
+                            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-5 rounded-2xl font-black text-sm transition-all shadow-lg shadow-emerald-500/20 active:scale-95 flex items-center justify-center gap-2 mb-4"
                         >
                             <Navigation size={18} />
                             GET DIRECTIONS

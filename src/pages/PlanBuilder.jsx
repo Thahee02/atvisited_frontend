@@ -65,7 +65,7 @@ const PlanBuilder = () => {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
                     <button
                         onClick={() => navigate(-1)}
-                        className="p-3 bg-white border border-slate-100 rounded-2xl text-slate-400 hover:text-blue-600 hover:border-blue-100 transition-all shadow-sm"
+                        className="p-3 bg-white border border-slate-100 rounded-2xl text-slate-400 hover:text-emerald-600 hover:border-emerald-100 transition-all shadow-sm"
                     >
                         <ArrowLeft size={20} />
                     </button>
@@ -83,12 +83,13 @@ const PlanBuilder = () => {
                         <button
                             onClick={savePlan}
                             disabled={saveLoading}
-                            className="flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-3xl font-black text-sm hover:bg-blue-700 transition-all shadow-xl shadow-blue-100 active:scale-95 disabled:opacity-50"
+                            className="flex items-center gap-2 bg-emerald-600 text-white px-8 py-4 rounded-3xl font-black text-sm hover:bg-emerald-700 transition-all shadow-xl shadow-emerald-100 active:scale-95 disabled:opacity-50"
                         >
                             <Save size={20} />
                             {saveLoading ? 'SAVING...' : 'SAVE ITINERARY'}
                         </button>
                     </div>
+
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
@@ -96,7 +97,7 @@ const PlanBuilder = () => {
                     <div className="lg:col-span-4 space-y-8">
                         <section className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm space-y-6">
                             <h2 className="text-xl font-black text-slate-900 mb-2 flex items-center gap-2">
-                                <Info size={20} className="text-blue-600" />
+                                <Info size={20} className="text-emerald-600" />
                                 Trip Details
                             </h2>
                             <div className="space-y-4">
@@ -109,7 +110,7 @@ const PlanBuilder = () => {
                                             placeholder="e.g. Summer Weekend Trip"
                                             value={title}
                                             onChange={(e) => setTitle(e.target.value)}
-                                            className="w-full bg-slate-50 border border-slate-100 pl-12 pr-4 py-3 rounded-2xl outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-50 transition-all font-bold"
+                                            className="w-full bg-slate-50 border border-slate-100 pl-12 pr-4 py-3 rounded-2xl outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-50 transition-all font-bold"
                                         />
                                     </div>
                                 </div>
@@ -122,7 +123,7 @@ const PlanBuilder = () => {
                                             placeholder="Who is exploring?"
                                             value={touristName}
                                             onChange={(e) => setTouristName(e.target.value)}
-                                            className="w-full bg-slate-50 border border-slate-100 pl-12 pr-4 py-3 rounded-2xl outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-50 transition-all font-bold"
+                                            className="w-full bg-slate-50 border border-slate-100 pl-12 pr-4 py-3 rounded-2xl outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-50 transition-all font-bold"
                                         />
                                     </div>
                                 </div>
@@ -134,16 +135,17 @@ const PlanBuilder = () => {
                                             type="date"
                                             value={visitDate}
                                             onChange={(e) => setVisitDate(e.target.value)}
-                                            className="w-full bg-slate-50 border border-slate-100 pl-12 pr-4 py-3 rounded-2xl outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-50 transition-all font-bold"
+                                            className="w-full bg-slate-50 border border-slate-100 pl-12 pr-4 py-3 rounded-2xl outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-50 transition-all font-bold"
                                         />
                                     </div>
                                 </div>
                             </div>
                         </section>
 
+
                         <section className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm">
                             <h2 className="text-xl font-black text-slate-900 mb-6 flex items-center gap-2">
-                                <MapPin size={20} className="text-blue-600" />
+                                <MapPin size={20} className="text-emerald-600" />
                                 Find Destinations
                             </h2>
                             <form onSubmit={handleSearch} className="relative mb-6">
@@ -153,7 +155,7 @@ const PlanBuilder = () => {
                                     placeholder="Search places..."
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
-                                    className="w-full bg-slate-50 border border-slate-100 pl-12 pr-4 py-3 rounded-2xl outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-50 transition-all font-bold text-sm"
+                                    className="w-full bg-slate-50 border border-slate-100 pl-12 pr-4 py-3 rounded-2xl outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-50 transition-all font-bold text-sm"
                                 />
                             </form>
 
@@ -177,7 +179,7 @@ const PlanBuilder = () => {
                                         </div>
                                         <button
                                             onClick={() => addPlace(place)}
-                                            className="p-2 bg-white text-blue-600 rounded-lg shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-all outline-none"
+                                            className="p-2 bg-white text-emerald-600 rounded-lg shadow-sm group-hover:bg-emerald-600 group-hover:text-white transition-all outline-none"
                                         >
                                             <Plus size={16} />
                                         </button>
@@ -185,6 +187,7 @@ const PlanBuilder = () => {
                                 ))}
                             </div>
                         </section>
+
                     </div>
 
                     {/* Main Canvas: Itinerary */}
@@ -197,13 +200,13 @@ const PlanBuilder = () => {
                                 className="bg-slate-900 p-6 rounded-[2rem] text-white flex items-center justify-between shadow-xl shadow-slate-200"
                             >
                                 <div>
-                                    <div className="flex items-center gap-2 text-blue-400 font-bold text-[9px] uppercase tracking-[0.2em] mb-1">
+                                    <div className="flex items-center gap-2 text-emerald-400 font-bold text-[9px] uppercase tracking-[0.2em] mb-1">
                                         <Calculator size={12} />
                                         Estimated Cost
                                     </div>
                                     <div className="text-3xl font-black">LKR {totalCost.toLocaleString()}</div>
                                 </div>
-                                <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-blue-400">
+                                <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-emerald-400">
                                     <Calculator size={24} />
                                 </div>
                             </motion.div>
@@ -214,17 +217,18 @@ const PlanBuilder = () => {
                                 className="bg-white p-6 rounded-[2rem] border border-slate-100 flex items-center justify-between shadow-sm"
                             >
                                 <div>
-                                    <div className="flex items-center gap-2 text-indigo-600 font-bold text-[9px] uppercase tracking-[0.2em] mb-1">
+                                    <div className="flex items-center gap-2 text-emerald-600 font-bold text-[9px] uppercase tracking-[0.2em] mb-1">
                                         <MapPin size={12} />
                                         Total Distance
                                     </div>
                                     <div className="text-3xl font-black text-slate-900">{totalDistance.toFixed(1)} <span className="text-slate-400 text-lg uppercase">KM</span></div>
                                 </div>
-                                <div className="w-12 h-12 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600">
+                                <div className="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600">
                                     <MapPin size={24} />
                                 </div>
                             </motion.div>
                         </div>
+
 
                         {/* Itinerary List */}
                         <div className="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm p-8 min-h-[600px]">
@@ -232,11 +236,12 @@ const PlanBuilder = () => {
                                 <h2 className="text-2xl font-black text-slate-900">Journey Path</h2>
                                 <button
                                     onClick={optimizeRoute}
-                                    className="flex items-center gap-2 px-6 py-3 bg-blue-50 text-blue-600 rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all active:scale-95"
+                                    className="flex items-center gap-2 px-6 py-3 bg-emerald-50 text-emerald-600 rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-emerald-600 hover:text-white transition-all active:scale-95"
                                 >
                                     <Navigation size={14} />
                                     Optimize Route
                                 </button>
+
                             </div>
 
                             <div className="space-y-6 relative">
@@ -268,9 +273,10 @@ const PlanBuilder = () => {
                                             className="relative pl-20 group"
                                         >
                                             {/* Order Badge */}
-                                            <div className="absolute left-6 top-1/2 -translate-y-1/2 w-8 h-8 bg-white border-2 border-slate-100 text-slate-900 rounded-full z-10 flex items-center justify-center font-black text-xs shadow-sm group-hover:border-blue-600 group-hover:text-blue-600 transition-colors cursor-grab active:cursor-grabbing">
+                                            <div className="absolute left-6 top-1/2 -translate-y-1/2 w-8 h-8 bg-white border-2 border-slate-100 text-slate-900 rounded-full z-10 flex items-center justify-center font-black text-xs shadow-sm group-hover:border-emerald-600 group-hover:text-emerald-600 transition-colors cursor-grab active:cursor-grabbing">
                                                 {index + 1}
                                             </div>
+
 
                                             <div className="bg-slate-50 border border-slate-100 p-6 rounded-[2rem] flex flex-col md:flex-row gap-6 hover:bg-white hover:shadow-xl hover:shadow-slate-100 transition-all">
                                                 <div className="w-full md:w-32 h-24 rounded-2xl overflow-hidden flex-shrink-0">
@@ -284,7 +290,7 @@ const PlanBuilder = () => {
                                                             <div>
                                                                 <h3 className="text-lg font-black text-slate-900">{place.name}</h3>
                                                                 <div className="flex items-center gap-1.5 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                                                                    <Clock className="text-blue-500" size={12} />
+                                                                    <Clock className="text-emerald-500" size={12} />
                                                                     {place.openingTime ? `${place.openingTime} - ${place.closingTime}` : 'Always Open'}
                                                                 </div>
                                                             </div>
@@ -304,7 +310,7 @@ const PlanBuilder = () => {
                                                                 type="time"
                                                                 value={place.estimatedArrivalTime}
                                                                 onChange={(e) => updatePlaceDetails(place.id, { estimatedArrivalTime: e.target.value })}
-                                                                className="w-full bg-white border border-slate-200 px-3 py-2 rounded-xl text-xs font-bold outline-none focus:border-blue-400"
+                                                                className="w-full bg-white border border-slate-200 px-3 py-2 rounded-xl text-xs font-bold outline-none focus:border-emerald-400"
                                                             />
                                                         </div>
                                                         <div className="space-y-1">
@@ -313,7 +319,7 @@ const PlanBuilder = () => {
                                                                 type="number"
                                                                 value={place.estimatedDurationMinutes}
                                                                 onChange={(e) => updatePlaceDetails(place.id, { estimatedDurationMinutes: parseInt(e.target.value) })}
-                                                                className="w-full bg-white border border-slate-200 px-3 py-2 rounded-xl text-xs font-bold outline-none focus:border-blue-400"
+                                                                className="w-full bg-white border border-slate-200 px-3 py-2 rounded-xl text-xs font-bold outline-none focus:border-emerald-400"
                                                             />
                                                         </div>
                                                         <div className="space-y-1">
@@ -335,7 +341,7 @@ const PlanBuilder = () => {
                                             {index < selectedPlaces.length - 1 && selectedPlaces[index + 1].transitTime > 0 && (
                                                 <div className="ml-10 my-4 py-2 px-6 border-l-2 border-dashed border-slate-100 flex items-center gap-4 text-slate-400">
                                                     <div className="flex items-center gap-2">
-                                                        <Navigation size={14} className="text-blue-400" />
+                                                        <Navigation size={14} className="text-emerald-400" />
                                                         <span className="text-[10px] font-black uppercase tracking-widest">
                                                             {selectedPlaces[index + 1].transitTime} mins transit
                                                         </span>

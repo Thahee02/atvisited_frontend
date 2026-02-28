@@ -4,10 +4,11 @@ import { cn } from '../utils/utils';
 
 const About = () => {
     const stats = [
-        { label: 'Destinations', value: '5K+', icon: Globe, color: 'text-blue-600', bg: 'bg-blue-50' },
-        { label: 'Explorers', value: '50K+', icon: Users, color: 'text-indigo-600', bg: 'bg-indigo-50' },
+        { label: 'Destinations', value: '5K+', icon: Globe, color: 'text-emerald-600', bg: 'bg-emerald-50' },
+        { label: 'Explorers', value: '50K+', icon: Users, color: 'text-teal-600', bg: 'bg-teal-50' },
         { label: 'Journeys', value: '120K+', icon: Compass, color: 'text-emerald-600', bg: 'bg-emerald-50' },
     ];
+
 
     const values = [
         { title: 'Authenticity', desc: 'Real experiences from real people across the globe.', icon: Rocket },
@@ -23,7 +24,7 @@ const About = () => {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded-full font-bold text-xs uppercase tracking-widest mb-8 border border-blue-100"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-600 rounded-full font-bold text-xs uppercase tracking-widest mb-8 border border-emerald-100"
                     >
                         Our Story
                     </motion.div>
@@ -33,8 +34,9 @@ const About = () => {
                         className="text-5xl md:text-8xl font-black text-slate-900 mb-8 leading-[0.9]"
                     >
                         Redefining the <br />
-                        <span className="text-blue-600">art of discovery</span>
+                        <span className="text-emerald-600">art of discovery</span>
                     </motion.h1>
+
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -53,8 +55,9 @@ const About = () => {
                         viewport={{ once: true }}
                         className="relative"
                     >
-                        <div className="absolute -inset-4 bg-blue-100 rounded-[3rem] -z-10 rotate-3" />
+                        <div className="absolute -inset-4 bg-emerald-100 rounded-[3rem] -z-10 rotate-3" />
                         <img
+
                             src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
                             alt="Story"
                             className="w-full rounded-[2.5rem] shadow-2xl"
@@ -99,7 +102,7 @@ const About = () => {
                                 viewport={{ once: true }}
                                 className="group"
                             >
-                                <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-6 transition-transform group-hover:scale-110 group-hover:rotate-3 shadow-lg shadow-blue-500/20">
+                                <div className="w-16 h-16 bg-emerald-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-6 transition-transform group-hover:scale-110 group-hover:rotate-3 shadow-lg shadow-emerald-500/20">
                                     <v.icon size={28} />
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-4">{v.title}</h3>

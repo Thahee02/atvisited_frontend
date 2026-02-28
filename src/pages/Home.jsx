@@ -48,11 +48,12 @@ const Home = () => {
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-50/50 text-blue-600 rounded-full font-bold text-[10px] uppercase tracking-[0.2em] mb-8 border border-blue-100/50 backdrop-blur-sm shadow-sm"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-50/50 text-emerald-600 rounded-full font-bold text-[10px] uppercase tracking-[0.2em] mb-8 border border-emerald-100/50 backdrop-blur-sm shadow-sm"
                     >
-                        <Sparkles size={12} className="text-blue-500" />
+                        <Sparkles size={12} className="text-emerald-500" />
                         Explore with Intelligence
                     </motion.div>
+
 
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
@@ -61,8 +62,9 @@ const Home = () => {
                         className="text-6xl md:text-[7rem] font-black tracking-tighter text-slate-900 mb-10 leading-[0.85] filter drop-shadow-sm"
                     >
                         Where will <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">adventure</span> find you?
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">adventure</span> find you?
                     </motion.h1>
+
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -80,8 +82,9 @@ const Home = () => {
                         onSubmit={handleSearch}
                         className="w-full max-w-3xl relative group"
                     >
-                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[3rem] blur opacity-10 group-hover:opacity-20 transition duration-1000 group-hover:duration-200" />
-                        <div className="relative flex items-center p-2.5 bg-white rounded-[3rem] border border-slate-200/60 shadow-[0_20px_50px_rgba(0,0,0,0.04)] focus-within:border-blue-400/50 focus-within:ring-[12px] focus-within:ring-blue-50/50 transition-all duration-500">
+                        <div className="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-[3rem] blur opacity-10 group-hover:opacity-20 transition duration-1000 group-hover:duration-200" />
+                        <div className="relative flex items-center p-2.5 bg-white rounded-[3rem] border border-slate-200/60 shadow-[0_20px_50px_rgba(0,0,0,0.04)] focus-within:border-emerald-400/50 focus-within:ring-[12px] focus-within:ring-emerald-50/50 transition-all duration-500">
+
                             <div className="pl-6 text-slate-400">
                                 <Search size={24} strokeWidth={2.5} />
                             </div>
@@ -92,7 +95,7 @@ const Home = () => {
                                 onChange={(e) => setSearchTerm(e.target.value)}
                                 className="flex-grow bg-transparent px-5 py-4 outline-none text-slate-900 font-bold text-lg placeholder:text-slate-400 placeholder:font-medium"
                             />
-                            <button className="bg-slate-900 text-white px-10 py-5 rounded-full font-black text-sm hover:bg-blue-600 transition-all duration-300 shadow-xl shadow-slate-200 hover:shadow-blue-200 active:scale-95 flex items-center gap-2">
+                            <button className="bg-slate-900 text-white px-10 py-5 rounded-full font-black text-sm hover:bg-emerald-600 transition-all duration-300 shadow-xl shadow-slate-200 hover:shadow-emerald-200 active:scale-95 flex items-center gap-2">
                                 EXPLORE
                             </button>
                         </div>
@@ -100,7 +103,7 @@ const Home = () => {
 
                     <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 mt-16 opacity-40 hover:opacity-100 transition-opacity duration-700">
                         {['EXPEDIA', 'BOOKING.COM', 'TRIPADVISOR', 'AIRBNB'].map(brand => (
-                            <div key={brand} className="text-xs font-black tracking-[0.3em] text-slate-400 hover:text-blue-600 transition-colors cursor-default">
+                            <div key={brand} className="text-xs font-black tracking-[0.3em] text-slate-400 hover:text-emerald-600 transition-colors cursor-default">
                                 {brand}
                             </div>
                         ))}
@@ -108,9 +111,10 @@ const Home = () => {
                 </div>
 
                 {/* Ambient Background Lights */}
-                <div className="absolute top-1/4 -right-20 -z-10 bg-blue-100/50 w-[500px] h-[500px] rounded-full blur-[120px] animate-pulse" />
-                <div className="absolute -bottom-20 -left-20 -z-10 bg-indigo-100/50 w-[500px] h-[500px] rounded-full blur-[120px]" />
+                <div className="absolute top-1/4 -right-20 -z-10 bg-emerald-100/50 w-[500px] h-[500px] rounded-full blur-[120px] animate-pulse" />
+                <div className="absolute -bottom-20 -left-20 -z-10 bg-teal-100/50 w-[500px] h-[500px] rounded-full blur-[120px]" />
             </section>
+
 
             {/* Main Content */}
             <section className="px-6 relative">
@@ -118,7 +122,7 @@ const Home = () => {
                     {/* Filters Header */}
                     <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-16">
                         <div>
-                            <div className="flex items-center gap-2 text-blue-600 font-bold text-[10px] uppercase tracking-[0.2em] mb-3">
+                            <div className="flex items-center gap-2 text-emerald-600 font-bold text-[10px] uppercase tracking-[0.2em] mb-3">
                                 <TrendingUp size={14} />
                                 Curated Collections
                             </div>
@@ -149,7 +153,7 @@ const Home = () => {
                                     className={cn(
                                         "whitespace-nowrap px-6 py-3 rounded-2xl font-bold text-sm transition-all duration-300",
                                         activeCategory === category.id
-                                            ? "bg-blue-600 text-white shadow-lg shadow-blue-100"
+                                            ? "bg-emerald-600 text-white shadow-lg shadow-emerald-100"
                                             : "bg-white text-slate-600 border border-slate-100 hover:border-slate-300"
                                     )}
                                 >
@@ -158,6 +162,7 @@ const Home = () => {
                             ))}
                         </div>
                     </div>
+
 
                     {/* Results Grid */}
                     <div className="min-h-[400px]">
@@ -209,10 +214,11 @@ const Home = () => {
                                 <p className="text-slate-500 font-medium">Try broadening your search or choosing a different category.</p>
                                 <button
                                     onClick={() => handleCategoryClick(null)}
-                                    className="mt-8 px-8 py-3 bg-slate-900 text-white rounded-full font-bold text-sm hover:bg-blue-600 transition-colors"
+                                    className="mt-8 px-8 py-3 bg-slate-900 text-white rounded-full font-bold text-sm hover:bg-emerald-600 transition-colors"
                                 >
                                     Clear all filters
                                 </button>
+
                             </motion.div>
                         )}
                     </div>

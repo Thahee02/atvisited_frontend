@@ -23,27 +23,30 @@ const Explore = () => {
                 {/* Left Side: Places List */}
                 <div className="w-full lg:w-[450px] flex flex-col bg-white border-r border-slate-100 z-20 shadow-xl">
                     <div className="p-6 border-b border-slate-50">
-                        <div className="flex items-center gap-2 text-blue-600 font-bold text-[10px] uppercase tracking-[0.2em] mb-3">
+                        <div className="flex items-center gap-2 text-emerald-600 font-bold text-[10px] uppercase tracking-[0.2em] mb-3">
                             <Compass size={14} />
                             Interactive Discovery
                         </div>
+
                         <h1 className="text-3xl font-black text-slate-900 tracking-tight mb-6">Explore Places</h1>
 
                         <form onSubmit={handleSearch} className="relative group">
-                            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-blue-500 transition-colors">
+                            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-emerald-500 transition-colors">
                                 <Search size={18} />
                             </div>
+
                             <input
                                 type="text"
                                 placeholder="Search by name or category..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full bg-slate-50 border border-slate-100 pl-12 pr-4 py-3.5 rounded-2xl outline-none focus:ring-4 focus:ring-blue-50 focus:border-blue-400 transition-all font-bold text-sm placeholder:font-medium"
+                                className="w-full bg-slate-50 border border-slate-100 pl-12 pr-4 py-3.5 rounded-2xl outline-none focus:ring-4 focus:ring-emerald-50 focus:border-emerald-400 transition-all font-bold text-sm placeholder:font-medium"
                             />
-                            <button className="absolute right-2 top-2 bottom-2 px-4 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-blue-600 transition-all active:scale-95">
+                            <button className="absolute right-2 top-2 bottom-2 px-4 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-emerald-600 transition-all active:scale-95">
                                 FIND
                             </button>
                         </form>
+
                     </div>
 
                     <div className="flex-grow overflow-y-auto p-6 space-y-4 no-scrollbar">
@@ -74,24 +77,27 @@ const Explore = () => {
                                             </div>
                                             <div className="flex-grow flex flex-col">
                                                 <div className="flex justify-between items-start mb-1">
-                                                    <span className="text-[9px] font-black text-blue-600 uppercase tracking-widest">{place.categoryName || 'SIGHT'}</span>
+                                                    <span className="text-[9px] font-black text-emerald-600 uppercase tracking-widest">{place.categoryName || 'SIGHT'}</span>
                                                     <div className="flex items-center gap-0.5 text-yellow-500">
+
                                                         <Star size={10} fill="currentColor" />
                                                         <span className="text-[10px] font-black">{place.rating || '4.5'}</span>
                                                     </div>
                                                 </div>
-                                                <h3 className="text-sm font-black text-slate-900 group-hover:text-blue-600 transition-colors mb-2 line-clamp-1">{place.name}</h3>
+                                                <h3 className="text-sm font-black text-slate-900 group-hover:text-emerald-600 transition-colors mb-2 line-clamp-1">{place.name}</h3>
                                                 <div className="flex items-center gap-1 text-slate-400 mb-3">
-                                                    <MapPin size={12} className="text-blue-500" />
+                                                    <MapPin size={12} className="text-emerald-500" />
                                                     <span className="text-[10px] font-medium truncate max-w-[150px]">{place.address || 'Local Destination'}</span>
                                                 </div>
+
                                                 <Link
                                                     to={`/place/${place.id}`}
                                                     className="mt-auto inline-flex items-center gap-1.5 text-[10px] font-black text-slate-900 group-hover:gap-2 transition-all uppercase tracking-widest"
                                                 >
                                                     View Details
-                                                    <Navigation size={12} className="text-blue-600" />
+                                                    <Navigation size={12} className="text-emerald-600" />
                                                 </Link>
+
                                             </div>
                                         </div>
                                     </motion.div>

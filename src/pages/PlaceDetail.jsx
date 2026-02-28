@@ -29,11 +29,14 @@ import {
 } from 'lucide-react';
 import { usePlaceDetail } from '../hooks/usePlaceDetail';
 import Loading from '../components/common/Loading';
+import { getFullImageUrl } from '../services/api';
 
 const PlaceDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const { place, loading, error } = usePlaceDetail(id);
+
+    const imageUrl = getFullImageUrl(place?.imageUrl, 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
 
     if (loading) return (
         <div className="min-h-screen pt-32">
@@ -66,7 +69,7 @@ const PlaceDetail = () => {
                     initial={{ scale: 1.1 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 1.5 }}
-                    src={place.imageUrl || 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80'}
+                    src={getFullImageUrl(place.imageUrl)}
                     alt={place.name}
                     className="w-full h-full object-cover"
                 />

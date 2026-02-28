@@ -5,6 +5,7 @@ import { usePlaces } from '../hooks/usePlaces';
 import MapView from '../components/map/MapView';
 import { Link } from 'react-router-dom';
 import Loading from '../components/common/Loading';
+import { getFullImageUrl } from '../services/api';
 
 const Explore = () => {
     const { places, loading, searchPlaces } = usePlaces();
@@ -70,7 +71,7 @@ const Explore = () => {
                                         <div className="flex gap-4">
                                             <div className="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0">
                                                 <img
-                                                    src={place.imageUrl || 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'}
+                                                    src={getFullImageUrl(place.imageUrl)}
                                                     alt={place.name}
                                                     className="w-full h-full object-cover transition-transform group-hover:scale-110"
                                                 />

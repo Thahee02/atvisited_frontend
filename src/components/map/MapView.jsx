@@ -2,7 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMap, Polyline } from 'react-
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { MapPin, Navigation } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
@@ -40,9 +40,57 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 const MapView = ({ places, height = '500px', center, zoom = 13, showRoute = true }) => {
+    // State for actual road geometry
+    const [routeGeometry, setRouteGeometry] = useState([]);
+    const [routeLoading, setRouteLoading] = useState(false);
+
     // Default center if nothing else is available
     const defaultCenter = [7.8731, 80.7718]; // Sri Lanka center
     const mapCenter = center || (places && places.length > 0 && places[0].latitude ? [places[0].latitude, places[0].longitude] : defaultCenter);
+
+    // Fetch road route from OSRM
+    useEffect(() => {
+        const fetchRoute = async () => {
+            if (!showRoute || !places || places.length < 2) {
+                setRouteGeometry([]);
+                return;
+            }
+
+            const validPlaces = places.filter(p => p.latitude && p.longitude);
+            if (validPlaces.length < 2) return;
+
+            setRouteLoading(true);
+            try {
+                // Construct OSRM API URL: lon,lat;lon,lat;...
+                const coordinates = validPlaces
+                    .map(p => `${p.longitude},${p.latitude}`)
+                    .join(';');
+
+                const response = await fetch(
+                    `https://router.project-osrm.org/route/v1/driving/${coordinates}?overview=full&geometries=geojson`
+                );
+                const data = await response.json();
+
+                if (data.code === 'Ok' && data.routes?.[0]?.geometry?.coordinates) {
+                    // GeoJSON format is [lon, lat], Leaflet needs [lat, lon]
+                    const routeCoords = data.routes[0].geometry.coordinates.map(coord => [coord[1], coord[0]]);
+                    setRouteGeometry(routeCoords);
+                } else {
+                    console.error('OSRM Route failed:', data.code);
+                    // Fallback to straight lines
+                    setRouteGeometry(validPlaces.map(p => [p.latitude, p.longitude]));
+                }
+            } catch (error) {
+                console.error('Error fetching road route:', error);
+                // Fallback to straight lines
+                setRouteGeometry(validPlaces.map(p => [p.latitude, p.longitude]));
+            } finally {
+                setRouteLoading(false);
+            }
+        };
+
+        fetchRoute();
+    }, [places, showRoute]);
 
     // Custom numbered icon for markers
     const createNumberedIcon = (number) => {
@@ -81,13 +129,11 @@ const MapView = ({ places, height = '500px', center, zoom = 13, showRoute = true
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
                         url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
                     />
-                    {showRoute && places && places.length > 1 && (
+                    {showRoute && routeGeometry.length > 0 && (
                         <>
                             {/* Path Glow/Shadow */}
                             <Polyline
-                                positions={places
-                                    .filter(p => p.latitude && p.longitude)
-                                    .map(p => [p.latitude, p.longitude])}
+                                positions={routeGeometry}
                                 color="#10b981"
                                 weight={10}
                                 opacity={0.15}
@@ -96,9 +142,7 @@ const MapView = ({ places, height = '500px', center, zoom = 13, showRoute = true
                             />
                             {/* Main Path Line */}
                             <Polyline
-                                positions={places
-                                    .filter(p => p.latitude && p.longitude)
-                                    .map(p => [p.latitude, p.longitude])}
+                                positions={routeGeometry}
                                 color="#10b981"
                                 weight={5}
                                 opacity={0.9}
@@ -150,11 +194,16 @@ const MapView = ({ places, height = '500px', center, zoom = 13, showRoute = true
             </div>
 
             {/* Map Overlay Controls Hint */}
-            <div className="absolute top-6 right-6 z-[1000] pointer-events-none">
+            <div className="absolute top-6 right-6 z-[1000] pointer-events-none flex flex-col items-end gap-2">
                 <div className="bg-white/90 backdrop-blur px-5 py-2.5 rounded-2xl border border-slate-100 shadow-xl text-[10px] font-black tracking-[0.2em] text-slate-800 uppercase flex items-center gap-2">
                     <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
                     Interactive Voyage
                 </div>
+                {routeLoading && (
+                    <div className="bg-slate-900/90 backdrop-blur px-4 py-1.5 rounded-xl text-[8px] font-black tracking-widest text-emerald-400 uppercase">
+                        Calculating Roads...
+                    </div>
+                )}
             </div>
         </motion.div>
     );

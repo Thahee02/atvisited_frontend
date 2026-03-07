@@ -8,6 +8,7 @@ import PlaceDetail from './pages/PlaceDetail';
 import Explore from './pages/Explore';
 import NotFound from './pages/NotFound';
 import Plans from './pages/Plans';
+import PlanDetail from './pages/PlanDetail';
 import PlanBuilder from './pages/PlanBuilder';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -53,6 +54,7 @@ const App = () => {
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Layout />}>
             <Route path="plans" element={<Plans />} />
+            <Route path="plans/:id" element={<PlanDetail />} />
             <Route path="build-plan" element={<PlanBuilder />} />
           </Route>
         </Route>

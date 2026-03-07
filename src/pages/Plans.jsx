@@ -131,10 +131,13 @@ const Plans = () => {
                                             <div className="text-sm font-black text-slate-800">
                                                 LKR {plan.totalEstimatedCost?.toLocaleString()}
                                             </div>
-                                            <button className="flex items-center gap-2 text-slate-900 font-black text-xs group-hover:gap-3 transition-all hover:text-emerald-600">
+                                            <Link
+                                                to={`/plans/${plan.id}`}
+                                                className="flex items-center gap-2 text-slate-900 font-black text-xs group-hover:gap-3 transition-all hover:text-emerald-600"
+                                            >
                                                 VIEW PATH
                                                 <ArrowRight size={16} />
-                                            </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </motion.div>

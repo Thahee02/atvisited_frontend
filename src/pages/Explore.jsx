@@ -124,7 +124,7 @@ const Explore = () => {
                         </div>
                     ) : null}
                     <div className="absolute inset-0 p-4 lg:p-10">
-                        <MapView places={places} height="100%" center={selectedCenter} />
+                        <MapView places={places} height="100%" center={selectedCenter} showRoute={false} />
                     </div>
 
                     {/* Floating Statistics */}

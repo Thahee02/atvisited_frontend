@@ -116,7 +116,7 @@ export const usePlanBuilder = () => {
     }, [selectedPlaces]);
 
     const totalDistance = useMemo(() => {
-        return selectedPlaces.reduce((sum, p) => sum + (p.distanceFromHome || 0), 0);
+        return selectedPlaces.reduce((sum, p) => sum + (p.distanceFromPrev || 0), 0);
     }, [selectedPlaces]);
 
     const savePlan = async () => {

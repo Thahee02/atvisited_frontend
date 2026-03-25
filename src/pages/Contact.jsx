@@ -48,8 +48,8 @@ const Contact = () => {
                         <div className="space-y-8">
                             {[
                                 { title: 'Email', value: 'hello@atvisited.com', icon: Mail, color: 'text-emerald-600', bg: 'bg-emerald-50' },
-                                { title: 'Phone', value: '+1 (555) 123-4567', icon: Phone, color: 'text-teal-600', bg: 'bg-teal-50' },
-                                { title: 'Headquarters', value: '123 Discovery Way, San Francisco', icon: MapPin, color: 'text-emerald-600', bg: 'bg-emerald-50' },
+                                { title: 'Phone', value: '+94 76 123 4567', icon: Phone, color: 'text-teal-600', bg: 'bg-teal-50' },
+                                { title: 'Headquarters', value: '123 Main Street, Sainthamaruthu', icon: MapPin, color: 'text-emerald-600', bg: 'bg-emerald-50' },
                             ].map((item, i) => (
 
                                 <motion.div
@@ -96,7 +96,7 @@ const Contact = () => {
                                         <input
                                             required
                                             type="email"
-                                            placeholder="hello@world.com"
+                                            placeholder="Your contact email"
                                             className="w-full bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-50 transition-all font-medium"
                                         />
                                     </div>

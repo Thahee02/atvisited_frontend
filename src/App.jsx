@@ -18,7 +18,6 @@ import ManagePlaces from './pages/admin/ManagePlaces';
 import ManageCategories from './pages/admin/ManageCategories';
 import ProtectedRoute from './components/ProtectedRoute';
 import useAuthStore from './store/useAuthStore';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -73,7 +72,6 @@ const App = () => {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <ToastContainer position="top-center" theme="dark" />
     </BrowserRouter>
   );
 };

@@ -65,7 +65,7 @@ const PlanBuilder = () => {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
                     <button
                         onClick={() => navigate(-1)}
-                        className="p-3 bg-white border border-slate-100 rounded-2xl text-slate-400 hover:text-emerald-600 hover:border-emerald-100 transition-all shadow-sm"
+                        className="p-3 bg-white border border-slate-100 rounded-xl text-slate-400 hover:text-emerald-600 hover:border-emerald-100 transition-all shadow-sm"
                     >
                         <ArrowLeft size={20} />
                     </button>
@@ -76,14 +76,14 @@ const PlanBuilder = () => {
                     <div className="flex gap-4">
                         <button
                             onClick={resetPlan}
-                            className="flex items-center gap-2 bg-white border border-slate-200 text-slate-600 px-6 py-4 rounded-3xl font-black text-sm hover:bg-slate-50 transition-all active:scale-95"
+                            className="flex items-center gap-2 bg-white border border-slate-200 text-slate-600 px-6 py-4 rounded-xl font-black text-sm hover:bg-slate-50 transition-all active:scale-95"
                         >
                             RESET
                         </button>
                         <button
                             onClick={savePlan}
                             disabled={saveLoading}
-                            className="flex items-center gap-2 bg-emerald-600 text-white px-8 py-4 rounded-3xl font-black text-sm hover:bg-emerald-700 transition-all shadow-xl shadow-emerald-100 active:scale-95 disabled:opacity-50"
+                            className="flex items-center gap-2 bg-emerald-600 text-white px-8 py-4 rounded-xl font-black text-sm hover:bg-emerald-700 transition-all shadow-xl shadow-emerald-100 active:scale-95 disabled:opacity-50"
                         >
                             <Save size={20} />
                             {saveLoading ? 'SAVING...' : 'SAVE ITINERARY'}
@@ -95,7 +95,7 @@ const PlanBuilder = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
                     {/* Sidebar: Details & Place Search */}
                     <div className="lg:col-span-4 space-y-8">
-                        <section className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm space-y-6">
+                        <section className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm space-y-6">
                             <h2 className="text-xl font-black text-slate-900 mb-2 flex items-center gap-2">
                                 <Info size={20} className="text-emerald-600" />
                                 Trip Details
@@ -143,7 +143,7 @@ const PlanBuilder = () => {
                         </section>
 
 
-                        <section className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm">
+                        <section className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
                             <h2 className="text-xl font-black text-slate-900 mb-6 flex items-center gap-2">
                                 <MapPin size={20} className="text-emerald-600" />
                                 Find Destinations
@@ -197,7 +197,7 @@ const PlanBuilder = () => {
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="bg-slate-900 p-6 rounded-[2rem] text-white flex items-center justify-between shadow-xl shadow-slate-200"
+                                className="bg-slate-900 p-6 rounded-2xl text-white flex items-center justify-between shadow-xl shadow-slate-200"
                             >
                                 <div>
                                     <div className="flex items-center gap-2 text-emerald-400 font-bold text-[9px] uppercase tracking-[0.2em] mb-1">
@@ -214,7 +214,7 @@ const PlanBuilder = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1 }}
-                                className="bg-white p-6 rounded-[2rem] border border-slate-100 flex items-center justify-between shadow-sm"
+                                className="bg-white p-6 rounded-2xl border border-slate-100 flex items-center justify-between shadow-sm"
                             >
                                 <div>
                                     <div className="flex items-center gap-2 text-emerald-600 font-bold text-[9px] uppercase tracking-[0.2em] mb-1">
@@ -231,12 +231,12 @@ const PlanBuilder = () => {
 
 
                         {/* Itinerary List */}
-                        <div className="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm p-8 min-h-[600px]">
+                        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-8 min-h-[600px]">
                             <div className="flex justify-between items-center mb-8">
                                 <h2 className="text-2xl font-black text-slate-900">Journey Path</h2>
                                 <button
                                     onClick={optimizeRoute}
-                                    className="flex items-center gap-2 px-6 py-3 bg-emerald-50 text-emerald-600 rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-emerald-600 hover:text-white transition-all active:scale-95"
+                                    className="flex items-center gap-2 px-6 py-3 bg-emerald-50 text-emerald-600 rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-emerald-600 hover:text-white transition-all active:scale-95"
                                 >
                                     <Navigation size={14} />
                                     Optimize Route
@@ -278,7 +278,7 @@ const PlanBuilder = () => {
                                             </div>
 
 
-                                            <div className="bg-slate-50 border border-slate-100 p-6 rounded-[2rem] flex flex-col md:flex-row gap-6 hover:bg-white hover:shadow-xl hover:shadow-slate-100 transition-all">
+                                            <div className="bg-slate-50 border border-slate-100 p-6 rounded-2xl flex flex-col md:flex-row gap-6 hover:bg-white hover:shadow-xl hover:shadow-slate-100 transition-all">
                                                 <div className="w-full md:w-32 h-24 rounded-2xl overflow-hidden flex-shrink-0">
                                                     <img src={place.imageUrl || 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'} className="w-full h-full object-cover" />
                                                 </div>

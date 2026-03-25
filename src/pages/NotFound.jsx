@@ -9,7 +9,7 @@ const NotFound = () => {
         <div className="min-h-screen flex items-center justify-center px-6 bg-[#fafbfc] overflow-hidden">
             <div className="text-center relative max-w-2xl w-full">
                 {/* Decorative Background Elements */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 bg-blue-100/30 w-[600px] h-[600px] rounded-full blur-[100px]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 bg-emerald-100/30 w-[600px] h-[600px] rounded-full blur-[100px]" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 bg-indigo-100/30 w-[400px] h-[400px] rounded-full blur-[100px]" />
 
                 <motion.div
@@ -31,7 +31,7 @@ const NotFound = () => {
                                 repeat: Infinity,
                                 ease: "linear"
                             }}
-                            className="w-32 h-32 bg-white rounded-[2.5rem] border border-slate-100 shadow-2xl flex items-center justify-center text-blue-600"
+                            className="w-32 h-32 bg-white rounded-[2.5rem] border border-slate-100 shadow-2xl flex items-center justify-center text-emerald-600"
                         >
                             <Compass size={64} strokeWidth={1.5} />
                         </motion.div>
@@ -44,7 +44,7 @@ const NotFound = () => {
                     transition={{ delay: 0.1 }}
                     className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight"
                 >
-                    Lost in the <span className="text-blue-600">Great Unknown?</span>
+                    Lost in the <span className="text-emerald-600">Great Unknown?</span>
                 </motion.h1>
 
                 <motion.p
@@ -64,16 +64,16 @@ const NotFound = () => {
                 >
                     <button
                         onClick={() => navigate('/')}
-                        className="w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-900 text-white px-10 py-5 rounded-3xl font-black text-sm hover:bg-blue-600 transition-all shadow-xl shadow-slate-200 active:scale-95 group"
+                        className="w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-900 text-white px-10 py-5 rounded-3xl font-black text-sm hover:bg-emerald-600 transition-all shadow-xl shadow-slate-200 active:scale-95 group"
                     >
                         <Home size={20} className="transition-transform group-hover:-translate-y-1" />
                         BACK TO HOME
                     </button>
                     <button
                         onClick={() => navigate('/explore')}
-                        className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-slate-900 border border-slate-200 px-10 py-5 rounded-3xl font-black text-sm hover:border-blue-200 hover:text-blue-600 transition-all active:scale-95 group"
+                        className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-slate-900 border border-slate-200 px-10 py-5 rounded-3xl font-black text-sm hover:border-emerald-200 hover:text-emerald-600 transition-all active:scale-95 group"
                     >
-                        <MapPin size={20} className="text-blue-500" />
+                        <MapPin size={20} className="text-emerald-500" />
                         EXPLORE DESTINATIONS
                     </button>
                 </motion.div>

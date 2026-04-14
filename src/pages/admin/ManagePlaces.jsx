@@ -2,16 +2,15 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Plus, Search, Edit2, Trash2, X, MapPin, Tag,
-    Image as ImageIcon, Loader2, ArrowLeft, Upload,
+    Image as ImageIcon, Loader2, Upload,
     Clock, DollarSign, Info, Shield, Coffee, Users,
     Car, Bath, History, Globe
 } from 'lucide-react';
-import { useNavigate } from 'react-router';
 import api, { getFullImageUrl } from '../../services/api';
 import { toast } from 'react-toastify';
+import AdminLayout from '../../components/admin/AdminLayout';
 
 const ManagePlaces = () => {
-    const navigate = useNavigate();
     const fileInputRef = useRef(null);
     const [places, setPlaces] = useState([]);
     const [categories, setCategories] = useState([]);
@@ -171,13 +170,11 @@ const ManagePlaces = () => {
     const getFullImageUrlWrapper = (path) => getFullImageUrl(path, null);
 
     return (
-        <div className="min-h-screen bg-[#0F172A] text-white p-6 lg:p-10 font-sans">
+        <AdminLayout>
+        <div className="p-6 lg:p-10 text-white font-sans">
             <header className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
                 <div>
-                    <button onClick={() => navigate('/admin/dashboard')} className="flex items-center gap-2 text-white/40 hover:text-white transition-colors mb-4 cursor-pointer">
-                        <ArrowLeft className="w-4 h-4" />
-                        <span>Back to Dashboard</span>
-                    </button>
+                    <p className="text-emerald-400 text-xs font-black uppercase tracking-[0.3em] mb-2">Management</p>
                     <h1 className="text-3xl font-extrabold tracking-tight">Manage Places</h1>
                     <p className="text-white/50 text-sm mt-1">Total {places.length} destinations available</p>
                 </div>
@@ -247,7 +244,7 @@ const ManagePlaces = () => {
                                         <td className="px-8 py-5">
                                             <div className="flex items-center gap-2 text-white/40 group-hover:text-white/60 transition-colors">
                                                 <MapPin className="w-3.5 h-3.5 text-emerald-500/40" />
-                                                <span className="text-xs font-medium truncate max-w-[200px]">{place.address || 'No address set'}</span>
+                                                <span className="text-xs font-medium truncate max-w-[200px]">{place.address?.toUpperCase() || 'No address set'}</span>
                                             </div>
                                         </td>
                                         <td className="px-8 py-5">
@@ -652,6 +649,7 @@ const ManagePlaces = () => {
                 )}
             </AnimatePresence>
         </div>
+        </AdminLayout>
     );
 };
 

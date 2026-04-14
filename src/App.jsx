@@ -16,6 +16,8 @@ import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import ManagePlaces from './pages/admin/ManagePlaces';
 import ManageCategories from './pages/admin/ManageCategories';
+import AdminSettings from './pages/admin/AdminSettings';
+import Profile from './pages/Profile';
 import ProtectedRoute from './components/ProtectedRoute';
 import useAuthStore from './store/useAuthStore';
 import { ToastContainer } from 'react-toastify';
@@ -56,6 +58,7 @@ const App = () => {
             <Route path="plans" element={<Plans />} />
             <Route path="plans/:id" element={<PlanDetail />} />
             <Route path="build-plan" element={<PlanBuilder />} />
+            <Route path="profile" element={<Profile />} />
           </Route>
         </Route>
 
@@ -69,6 +72,7 @@ const App = () => {
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/places" element={<ManagePlaces />} />
           <Route path="/admin/categories" element={<ManageCategories />} />
+          <Route path="/admin/settings" element={<AdminSettings />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />

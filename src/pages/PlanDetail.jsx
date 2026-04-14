@@ -15,6 +15,7 @@ import { planService } from '../services/planService';
 import { toast } from 'react-toastify';
 import Loading from '../components/common/Loading';
 import MapView from '../components/map/MapView';
+import { getFullImageUrl } from '../services/api';
 
 const PlanDetail = () => {
     const { id } = useParams();
@@ -131,8 +132,13 @@ const PlanDetail = () => {
                                             {item.visitOrder}
                                         </div>
 
-                                        <div className="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0 border border-slate-100">
-                                            <img src={item.imageUrl} alt={item.placeName} className="w-full h-full object-cover" />
+                                        <div className="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0 border border-slate-100 bg-slate-50">
+                                            <img
+                                                src={getFullImageUrl(item.imageUrl)}
+                                                alt={item.placeName}
+                                                className="w-full h-full object-cover"
+                                                onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'; }}
+                                            />
                                         </div>
 
                                         <div className="flex-grow">

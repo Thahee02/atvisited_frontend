@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Search, Edit2, Trash2, X, Tag, Loader2, ArrowLeft } from 'lucide-react';
-import { useNavigate } from 'react-router';
+import { Plus, Search, Edit2, Trash2, X, Tag, Loader2 } from 'lucide-react';
 import api from '../../services/api';
 import { toast } from 'react-toastify';
+import AdminLayout from '../../components/admin/AdminLayout';
 
 const ManageCategories = () => {
-    const navigate = useNavigate();
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -88,13 +87,11 @@ const ManageCategories = () => {
     );
 
     return (
-        <div className="min-h-screen bg-[#0F172A] text-white p-6 lg:p-10 font-sans">
+        <AdminLayout>
+        <div className="p-6 lg:p-10 text-white font-sans">
             <header className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
                 <div>
-                    <button onClick={() => navigate('/admin/dashboard')} className="flex items-center gap-2 text-white/40 hover:text-white transition-colors mb-4 cursor-pointer">
-                        <ArrowLeft className="w-4 h-4" />
-                        <span>Back to Dashboard</span>
-                    </button>
+                    <p className="text-emerald-400 text-xs font-black uppercase tracking-[0.3em] mb-2">Management</p>
                     <h1 className="text-3xl font-extrabold tracking-tight">Main Categories</h1>
                     <p className="text-white/50 text-sm mt-1">Organize your destinations into logical groups</p>
                 </div>
@@ -265,6 +262,7 @@ const ManageCategories = () => {
                 )}
             </AnimatePresence>
         </div>
+        </AdminLayout>
     );
 };
 

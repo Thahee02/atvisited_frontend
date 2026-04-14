@@ -21,6 +21,7 @@ import { usePlaces } from '../hooks/usePlaces';
 import { usePlanBuilder } from '../hooks/usePlanBuilder';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Loading from '../components/common/Loading';
+import { getFullImageUrl } from '../services/api';
 
 const PlanBuilder = () => {
     const navigate = useNavigate();
@@ -169,8 +170,13 @@ const PlanBuilder = () => {
                                         className="p-3 bg-slate-50 border border-slate-100 rounded-2xl flex items-center justify-between group cursor-pointer hover:bg-white hover:shadow-lg hover:shadow-slate-100 transition-all"
                                     >
                                         <div className="flex items-center gap-3">
-                                            <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0">
-                                                <img src={place.imageUrl || 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'} className="w-full h-full object-cover" />
+                                            <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 bg-slate-100">
+                                                <img
+                                                    src={getFullImageUrl(place.imageUrl)}
+                                                    alt={place.name}
+                                                    className="w-full h-full object-cover"
+                                                    onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'; }}
+                                                />
                                             </div>
                                             <div>
                                                 <h4 className="text-xs font-black text-slate-900 leading-tight mb-1">{place.name}</h4>
@@ -279,8 +285,13 @@ const PlanBuilder = () => {
 
 
                                             <div className="bg-slate-50 border border-slate-100 p-6 rounded-2xl flex flex-col md:flex-row gap-6 hover:bg-white hover:shadow-xl hover:shadow-slate-100 transition-all">
-                                                <div className="w-full md:w-32 h-24 rounded-2xl overflow-hidden flex-shrink-0">
-                                                    <img src={place.imageUrl || 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'} className="w-full h-full object-cover" />
+                                                <div className="w-full md:w-32 h-24 rounded-2xl overflow-hidden flex-shrink-0 bg-slate-100">
+                                                    <img
+                                                        src={getFullImageUrl(place.imageUrl)}
+                                                        alt={place.name}
+                                                        className="w-full h-full object-cover"
+                                                        onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'; }}
+                                                    />
                                                 </div>
 
                                                 <div className="flex-grow space-y-4">

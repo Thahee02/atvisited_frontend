@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, MapPin, Search, User, LogOut, Layout } from 'lucide-react';
+import { Menu, X, MapPin, User, LogOut, Layout, Settings } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../../utils/utils';
 import useAuthStore from '../../store/useAuthStore';
@@ -58,9 +58,9 @@ const Navbar = () => {
                     ))}
 
                     {isAuthenticated ? (
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-3">
                             {user?.role === 'ADMIN' && (
-                                <Link to="/admin/dashboard" className="p-2 text-slate-400 hover:text-emerald-600 transition-colors">
+                                <Link to="/admin/dashboard" className="p-2 text-slate-400 hover:text-emerald-600 transition-colors" title="Admin Dashboard">
                                     <Layout size={20} />
                                 </Link>
                             )}
@@ -70,9 +70,19 @@ const Navbar = () => {
                                 </div>
                                 <span className="text-xs font-black text-slate-900 uppercase tracking-tighter">{user?.firstName}</span>
                             </div>
+                            {user?.role !== 'ADMIN' && (
+                                <Link
+                                    to="/profile"
+                                    className="p-2 text-slate-400 hover:text-emerald-600 transition-colors"
+                                    title="My Profile"
+                                >
+                                    <Settings size={20} />
+                                </Link>
+                            )}
                             <button
                                 onClick={() => { logout(); navigate('/'); }}
                                 className="p-2 text-slate-400 hover:text-red-500 transition-colors"
+                                title="Logout"
                             >
                                 <LogOut size={20} />
                             </button>
@@ -132,6 +142,16 @@ const Navbar = () => {
                                 {user?.role === 'ADMIN' && (
                                     <Link to="/admin/dashboard" onClick={() => setIsOpen(false)} className="block w-full text-center py-4 bg-emerald-50 text-emerald-600 rounded-2xl font-black text-sm uppercase tracking-widest">
                                         Dashboard
+                                    </Link>
+                                )}
+                                {user?.role !== 'ADMIN' && (
+                                    <Link
+                                        to="/profile"
+                                        onClick={() => setIsOpen(false)}
+                                        className="flex items-center gap-3 w-full py-4 px-5 bg-slate-50 text-slate-700 rounded-2xl font-black text-sm uppercase tracking-widest"
+                                    >
+                                        <Settings size={18} className="text-emerald-500" />
+                                        My Profile
                                     </Link>
                                 )}
                                 <button

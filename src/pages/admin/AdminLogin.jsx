@@ -27,7 +27,10 @@ const AdminLogin = () => {
                 navigate('/');
             }
         } catch (error) {
-            toast.error('Invalid credentials or access denied.');
+            const msg = error.response?.data?.message
+                || error.response?.data
+                || 'Invalid credentials or access denied.';
+            toast.error(typeof msg === 'string' ? msg : 'Invalid credentials or access denied.');
             console.error('Login error:', error);
         } finally {
             setIsSubmitting(false);

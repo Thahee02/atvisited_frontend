@@ -18,6 +18,7 @@ import ManagePlaces from './pages/admin/ManagePlaces';
 import ManageCategories from './pages/admin/ManageCategories';
 import ProtectedRoute from './components/ProtectedRoute';
 import useAuthStore from './store/useAuthStore';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -72,6 +73,27 @@ const App = () => {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
+
+      {/* Global toast — covers admin pages that don't use Layout */}
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        toastClassName={() =>
+          'relative flex p-4 min-h-16 rounded-2xl justify-between overflow-hidden cursor-pointer bg-white border border-slate-100 shadow-2xl'
+        }
+        bodyClassName={() =>
+          'text-sm font-bold flex p-3'
+        }
+        style={{ '--toastify-text-color-light': '#000000', color: '#000000' }}
+      />
     </BrowserRouter>
   );
 };

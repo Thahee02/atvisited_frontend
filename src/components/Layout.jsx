@@ -28,6 +28,7 @@ const Layout = () => {
                 theme="light"
                 toastClassName={() => "relative flex p-4 min-h-16 rounded-2xl justify-between overflow-hidden cursor-pointer bg-white border border-slate-100 shadow-2xl"}
                 bodyClassName={() => "text-sm font-bold text-slate-900 flex p-3"}
+                style={{ '--toastify-text-color-light': '#000000', color: '#000000' }}
             />
         </div>
     );

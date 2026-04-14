@@ -101,13 +101,13 @@ const Home = () => {
                         </div>
                     </motion.form>
 
-                    <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 mt-16 opacity-40 hover:opacity-100 transition-opacity duration-700">
+                    {/* <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 mt-16 opacity-40 hover:opacity-100 transition-opacity duration-700">
                         {['EXPEDIA', 'BOOKING.COM', 'TRIPADVISOR', 'AIRBNB'].map(brand => (
                             <div key={brand} className="text-xs font-black tracking-[0.3em] text-slate-400 hover:text-emerald-600 transition-colors cursor-default">
                                 {brand}
                             </div>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* Ambient Background Lights */}

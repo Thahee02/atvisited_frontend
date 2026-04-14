@@ -17,7 +17,7 @@ const Layout = () => {
 
             <ToastContainer
                 position="bottom-right"
-                autoClose={5000}
+                autoClose={4000}
                 hideProgressBar={false}
                 newestOnTop
                 closeOnClick
@@ -26,8 +26,9 @@ const Layout = () => {
                 draggable
                 pauseOnHover
                 theme="light"
-                toastClassName={() => "relative flex p-4 min-h-16 rounded-[1.5rem] justify-between overflow-hidden cursor-pointer bg-white border border-slate-100 shadow-2xl"}
+                toastClassName={() => "relative flex p-4 min-h-16 rounded-2xl justify-between overflow-hidden cursor-pointer bg-white border border-slate-100 shadow-2xl"}
                 bodyClassName={() => "text-sm font-bold text-slate-900 flex p-3"}
+                style={{ '--toastify-text-color-light': '#000000', color: '#000000' }}
             />
         </div>
     );

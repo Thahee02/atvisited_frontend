@@ -302,10 +302,10 @@ const ManagePlaces = () => {
                             <div className="flex items-center justify-between mb-12">
                                 <div>
                                     <h2 className="text-4xl font-black tracking-tighter text-white uppercase italic">
-                                        {editingPlace ? 'Update Entity' : 'Create Entity'}
+                                        {editingPlace ? 'Update Place' : 'Create Place'}
                                     </h2>
                                     <p className="text-emerald-500/60 text-[10px] mt-2 font-black uppercase tracking-[0.3em]">
-                                        Destination Management Protocol v2.0
+                                        Destination Management
                                     </p>
                                 </div>
                                 <button
@@ -629,7 +629,7 @@ const ManagePlaces = () => {
                                         onClick={() => setIsModalOpen(false)}
                                         className="px-10 py-5 text-white/30 font-black uppercase tracking-widest hover:text-white transition-colors cursor-pointer text-xs"
                                     >
-                                        Abort Operations
+                                        Cancel
                                     </button>
                                     <button
                                         type="submit"
@@ -640,7 +640,7 @@ const ManagePlaces = () => {
                                             <Loader2 className="w-6 h-6 animate-spin" />
                                         ) : (
                                             <>
-                                                {editingPlace ? 'Synchronize Data' : 'Initialize Destination'}
+                                                {editingPlace ? 'Update Place' : 'Register Place'}
                                                 <ArrowLeft className="w-5 h-5 opacity-50 rotate-180" />
                                             </>
                                         )}

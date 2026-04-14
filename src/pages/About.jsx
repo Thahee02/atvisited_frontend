@@ -43,7 +43,7 @@ const About = () => {
                         transition={{ delay: 0.1 }}
                         className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto"
                     >
-                        AtVisited is more than a tool—it's a movement to bridge cultures and inspire the explorer in everyone.
+                        AtVisited is more than a tool it's a movement to bridge cultures and inspire the explorer in everyone.
                     </motion.p>
                 </div>
 

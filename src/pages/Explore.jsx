@@ -86,9 +86,9 @@ const Explore = () => {
                                                     </div>
                                                 </div>
                                                 <h3 className="text-sm font-black text-slate-900 group-hover:text-emerald-600 transition-colors mb-2 line-clamp-1">{place.name}</h3>
-                                                <div className="flex items-center gap-1 text-slate-400 mb-3">
-                                                    <MapPin size={12} className="text-emerald-500" />
-                                                    <span className="text-[10px] font-medium truncate max-w-[150px]">{place.address || 'Local Destination'}</span>
+                                                <div className="flex items-start gap-1 text-slate-400 mb-3">
+                                                    <MapPin size={12} className="text-emerald-500 flex-shrink-0 mt-0.5" />
+                                                    <span className="text-[10px] font-medium line-clamp-2">{place.description || place.address || 'Local Destination'}</span>
                                                 </div>
 
                                                 <Link

@@ -23,7 +23,10 @@ const Login = () => {
             toast.success('Welcome back, explorer!');
             navigate(-1); // Go back to previous page (like Plan Builder)
         } catch (error) {
-            toast.error('Invalid credentials. Check your map and try again.');
+            const msg = error.response?.data?.message
+                || error.response?.data
+                || 'Invalid credentials. Please check your email and password.';
+            toast.error(typeof msg === 'string' ? msg : 'Invalid credentials. Please check your email and password.');
         } finally {
             setIsSubmitting(false);
         }

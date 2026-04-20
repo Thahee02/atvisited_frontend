@@ -4,7 +4,7 @@ import {
     Plus, Search, Edit2, Trash2, X, MapPin, Tag,
     Image as ImageIcon, Loader2, Upload,
     Clock, DollarSign, Info, Shield, Coffee, Users,
-    Car, Bath, History, Globe
+    Car, Bath, History, Globe, ArrowLeft
 } from 'lucide-react';
 import api, { getFullImageUrl } from '../../services/api';
 import { toast } from 'react-toastify';

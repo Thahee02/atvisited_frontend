@@ -75,7 +75,7 @@ export const usePlanBuilder = () => {
             };
             
             const newPlaces = [...prev, newItem];
-            toast.success(`Added ${place.name} to plan.`);
+            // toast.success(`Added ${place.name} to plan.`);
             return calculateTimes(newPlaces);
         });
     }, [calculateTimes]);

@@ -74,7 +74,7 @@ const Register = () => {
                                 value={formData.firstName}
                                 onChange={handleChange}
                                 className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4 px-5 text-slate-900 focus:outline-none focus:border-emerald-500/30 focus:ring-4 focus:ring-emerald-50 transition-all font-medium placeholder:text-slate-300"
-                                placeholder="Frodo"
+                                placeholder="Enter your first name"
                                 required
                             />
                         </div>
@@ -85,7 +85,7 @@ const Register = () => {
                                 value={formData.lastName}
                                 onChange={handleChange}
                                 className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4 px-5 text-slate-900 focus:outline-none focus:border-emerald-500/30 focus:ring-4 focus:ring-emerald-50 transition-all font-medium placeholder:text-slate-300"
-                                placeholder="Baggins"
+                                placeholder="Enter your last name"
                                 required
                             />
                         </div>
@@ -99,7 +99,7 @@ const Register = () => {
                             value={formData.email}
                             onChange={handleChange}
                             className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4 px-5 text-slate-900 focus:outline-none focus:border-emerald-500/30 focus:ring-4 focus:ring-emerald-50 transition-all font-medium placeholder:text-slate-300"
-                            placeholder="frodo@shire.com"
+                            placeholder="Enter your email"
                             required
                         />
                     </div>
@@ -113,7 +113,7 @@ const Register = () => {
                                 value={formData.password}
                                 onChange={handleChange}
                                 className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4 px-5 text-slate-900 focus:outline-none focus:border-emerald-500/30 focus:ring-4 focus:ring-emerald-50 transition-all font-medium placeholder:text-slate-300"
-                                placeholder="••••••••"
+                                placeholder="Enter your password"
                                 required
                             />
                         </div>
@@ -125,7 +125,7 @@ const Register = () => {
                                 value={formData.confirmPassword}
                                 onChange={handleChange}
                                 className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4 px-5 text-slate-900 focus:outline-none focus:border-emerald-500/30 focus:ring-4 focus:ring-emerald-50 transition-all font-medium placeholder:text-slate-300"
-                                placeholder="••••••••"
+                                placeholder="Confirm your password"
                                 required
                             />
                         </div>

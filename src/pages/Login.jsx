@@ -63,7 +63,7 @@ const Login = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4 pl-12 pr-4 text-slate-900 focus:outline-none focus:border-emerald-500/30 focus:ring-4 focus:ring-emerald-50 transition-all font-medium placeholder:text-slate-300"
-                                placeholder="explorer@world.com"
+                                placeholder="Enter your email"
                                 required
                             />
                         </div>
@@ -80,7 +80,7 @@ const Login = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4 pl-12 pr-12 text-slate-900 focus:outline-none focus:border-emerald-500/30 focus:ring-4 focus:ring-emerald-50 transition-all font-medium placeholder:text-slate-300"
-                                placeholder="••••••••"
+                                placeholder="Enter your password"
                                 required
                             />
                             <button

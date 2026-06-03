@@ -87,7 +87,7 @@ const Contact = () => {
                                         <input
                                             required
                                             type="text"
-                                            placeholder="Your explorer name"
+                                            placeholder="Enter your name"
                                             className="w-full bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-50 transition-all font-medium"
                                         />
                                     </div>
@@ -96,7 +96,7 @@ const Contact = () => {
                                         <input
                                             required
                                             type="email"
-                                            placeholder="Your contact email"
+                                            placeholder="Enter your email"
                                             className="w-full bg-slate-50 border border-slate-100 px-6 py-4 rounded-2xl outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-50 transition-all font-medium"
                                         />
                                     </div>
